@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090813">
+<title>Для тебя ♡</title>
+<style>
+:root{--pink:#ff91cb;--rose:#f9b6d9;--ink:#080a15;--muted:#c8c3d8;--line:#45304f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#080812;color:#fff5fc;font-family:Georgia,'Times New Roman',serif}
+button{font:inherit;cursor:pointer}.page{max-width:1200px;margin:12px auto;padding:0 12px}
+.cover{min-height:570px;position:relative;overflow:hidden;border:1px solid #a75b8d;border-radius:18px;background:linear-gradient(90deg,rgba(7,7,18,.16),rgba(7,7,18,.3) 38%,rgba(7,7,18,.8) 100%),url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2000&q=85') center/cover;display:flex;align-items:center;justify-content:flex-end;padding:clamp(25px,6vw,76px);box-shadow:0 0 50px #a8327430}
+.cover:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#090813b8,transparent 24%,transparent 75%,#09081366);pointer-events:none}
+.toplabel,.signature{position:absolute;z-index:1;color:#ffc4e2;font-style:italic;font-size:14px}.toplabel{top:24px;left:28px}.signature{bottom:20px;right:28px}
+.intro{position:relative;z-index:1;width:min(100%,540px);text-align:left;text-shadow:0 2px 18px #05030a}
+.kicker{color:#ffb8df;letter-spacing:3px;text-transform:uppercase;font:11px Arial,sans-serif}
+h1{font-size:clamp(44px,7vw,78px);font-weight:400;line-height:.98;font-style:italic;margin:18px 0;color:#ffd5eb}h1 span{color:var(--pink)}
+.intro p{font-size:17px;line-height:1.8;color:#f5e8f2;max-width:500px}
+.openbtn{margin-top:18px;border:1px solid var(--pink);border-radius:40px;padding:15px 23px;color:#fff2fb;background:#190f24d9;box-shadow:0 0 25px #e85ba34a;transition:.2s}.openbtn:hover{background:#48213f;transform:translateY(-2px)}
+.hint{color:#e7b1d1;font-style:italic;font-size:13px;margin-top:14px}
+#listSection{display:none;margin-top:16px;padding:clamp(18px,4vw,40px);border:1px solid #674064;border-radius:18px;background:radial-gradient(ellipse at top,#201329,#090b15 60%);animation:appear .6s ease}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.listtop{display:flex;align-items:center;justify-content:space-between;gap:12px}.back{background:transparent;border:0;color:#ffc5e2;padding:8px 0}.title{text-align:center;margin:8px auto 26px}.title h2{font-size:clamp(28px,4vw,43px);font-weight:400;font-style:italic;color:var(--pink);margin:10px 0}.title p{color:#cfc2d9;margin:0;font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.card{background:linear-gradient(145deg,#12121f,#0c0d17);border:1px solid #3d2c4a;border-radius:14px;padding:15px;min-height:125px;transition:.2s}.card:hover{border-color:#d56da8;transform:translateY(-2px)}.meta{display:flex;justify-content:space-between;align-items:center;gap:5px;color:#d8cce3;font-size:12px;margin-bottom:12px}.phrase{font-size:15px;line-height:1.45;margin-bottom:8px}.meaning{font:12px/1.5 Arial,sans-serif;color:#aaaec5}.copy{border:0;background:none;color:#e9c1dc;padding:0 2px;font-size:17px}.ending{text-align:center;margin:30px auto 5px;color:#ffc3e1;font-style:italic;font-size:18px;line-height:1.6}.ending small{display:block;font:12px Arial,sans-serif;color:#bcb3ca;margin-top:8px}.footer{text-align:center;color:#8e829f;padding:22px;font:12px Arial,sans-serif}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#21162b;border:1px solid var(--pink);border-radius:30px;padding:12px 18px;display:none;z-index:5}
+@media(max-width:950px){.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.cover{min-height:520px;background-position:40% center}.intro{max-width:520px}}
+@media(max-width:600px){.page{padding:0 8px;margin:8px auto}.cover{min-height:610px;align-items:flex-end;justify-content:center;padding:28px 22px 64px;background-position:38% center}.cover:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#080812f5 0%,#080812b8 45%,#08081225 100%)}.intro{text-align:center}.intro p{font-size:15px}.toplabel{top:18px;left:18px}.signature{right:18px;bottom:15px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.card{padding:11px;min-height:130px}.phrase{font-size:13px}.meta{font-size:11px}.listtop{align-items:flex-start}.title{margin-bottom:20px}}
+</style>
+</head>
+<body>
+<div class="page">
+<section class="cover" id="cover">
+  <div class="toplabel">♡ &nbsp; Для тебя</div>
+  <div class="intro">
+    <div class="kicker">Маленькая открытка от сердца</div>
+    <h1>Ты —<br>особенная <span>♡</span></h1>
+    <p>В этом мире миллионы людей, но у каждого есть кто-то, чья улыбка делает день чуточку светлее. Я просто хотел напомнить тебе, какая ты прекрасная.</p>
+    <button class="openbtn" onclick="openCompliments()">♡ &nbsp; Открыть 30 комплиментов &nbsp; →</button>
+    <div class="hint">Нажми, чтобы увидеть 30 слов о твоей красоте на разных языках ♡</div>
+  </div>
+  <div class="signature">Для самой красивой ♡</div>
+</section>
+<section id="listSection">
+  <div class="listtop"><button class="back" onclick="backToCover()">← Назад к открытке</button><span style="color:#ffabd8">♡</span></div>
+  <div class="title"><div style="color:#ff9fce;font-size:25px">—　♡　—</div><h2>30 слов о твоей красоте</h2><p>Одни и те же чувства — на разных языках ♡</p></div>
+  <div class="cards" id="cards"></div>
+  <div class="ending">♡ Ты — не просто красивая.<br>Ты — особенная. И в этом вся разница.<small>Надеюсь, эта маленькая открытка подарит тебе улыбку.</small></div>
+</section>
+<div class="footer">Сделано с теплом ♡</div>
+</div>
+<div class="toast" id="toast">Скопировано ♡</div>
+<script>
+const data=[
+["🇷🇺","Русский","Ты невероятно красивая.","Ты невероятно красивая."],
+["🇬🇧","English","You are incredibly beautiful.","Ты невероятно красивая."],
+["🇫🇷","Français","Tu es vraiment magnifique.","Ты действительно великолепна."],
+["🇩🇪","Deutsch","Du bist wunderschön.","Ты прекрасна."],
+["🇪🇸","Español","Eres increíblemente hermosa.","Ты невероятно красивая."],
+["🇮🇹","Italiano","Sei bellissima.","Ты очень красивая."],
+["🇹🇷","Türkçe","Sen çok güzelsin.","Ты очень красивая."],
+["🇸🇦","العربية","أنتِ جميلة جدًا.","Ты очень красивая."],
+["🇯🇵","日本語","とても美しいですね。","Ты очень красивая."],
+["🇰🇷","한국어","정말 아름다워요.","Ты действительно красивая."],
+["🇵🇹","Português","Você é linda.","Ты красивая."],
+["🇳🇱","Nederlands","Je bent prachtig.","Ты прекрасна."],
+["🇵🇱","Polski","Jesteś przepiękna.","Ты великолепна."],
+["🇸🇪","Svenska","Du är fantastisk.","Ты потрясающая."],
+["🇳🇴","Norsk","Du er nydelig.","Ты прекрасна."],
+["🇩🇰","Dansk","Du er smuk.","Ты красивая."],
+["🇨🇳","中文","你很美。","Ты красивая."],
+["🇭🇺","Magyar","Gyönyörű vagy.","Ты прекрасна."],
+["🇷🇴","Română","Ești superbă.","Ты потрясающая."],
+["🇬🇷","Ελληνικά","Είσαι πανέμορφη.","Ты очень красивая."],
+["🇨🇿","Čeština","Jsi nádherná.","Ты прекрасна."],
+["🇭🇷","Hrvatski","Ti si predivna.","Ты великолепна."],
+["🇺🇦","Українська","Ти неймовірно красива.","Ты невероятно красивая."],
+["🇧🇬","Български","Ти си прекрасна.","Ты прекрасна."],
+["🇸🇮","Slovenščina","Si čudovita.","Ты чудесная."],
+["🇱🇻","Latviešu","Tu esi brīnišķīga.","Ты прекрасна."],
+["🇪🇪","Eesti","Sa oled kaunis.","Ты красивая."],
+["🇮🇸","Íslenska","Þú ert yndisleg.","Ты чудесная."],
+["🇲🇾","Bahasa Melayu","Kamu sangat cantik.","Ты очень красивая."],
+["🇮🇳","हिन्दी","तुम बहुत खूबसूरत हो।","Ты очень красивая."]
+];
+document.getElementById("cards").innerHTML=data.map((x,i)=>`<article class="card"><div class="meta"><span>${i+1}. &nbsp; ${x[0]} ${x[1]}</span><button class="copy" aria-label="Скопировать комплимент" onclick="copyPhrase(${i})">▢</button></div><div class="phrase">${x[2]}</div><div class="meaning">(${x[3]})</div></article>`).join("");
+function openCompliments(){const s=document.getElementById("listSection");s.style.display="block";s.scrollIntoView({behavior:"smooth",block:"start"});}
+function backToCover(){document.getElementById("cover").scrollIntoView({behavior:"smooth",block:"start"});}
+function copyPhrase(i){const text=data[i][2];if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(showToast).catch(()=>fallbackCopy(text));}else fallbackCopy(text);}
+function fallbackCopy(text){const el=document.createElement("textarea");el.value=text;document.body.appendChild(el);el.select();document.execCommand("copy");el.remove();showToast();}
+function showToast(){const t=document.getElementById("toast");t.style.display="block";setTimeout(()=>t.style.display="none",1500);}
+</script>
+</body>
+</html>
